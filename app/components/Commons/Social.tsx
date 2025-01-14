@@ -59,12 +59,14 @@ const Social = () => {
             key={index}
             className="inline-block mx-[15px] first:ml-0 last:mr-0"
           >
-            <SocialItem
-              icon={item.icon}
-              href={item.link}
-              title={item.title}
-              className="opacity-100 hover:opacity-100 text-[#333333]"
-            />
+            <div className="border-solid border-[1px] border-[#333333] rounded-full p-2">
+              <SocialItem
+                icon={item.icon}
+                href={item.link}
+                title={item.title}
+                className="opacity-100 hover:opacity-100 text-[#333333]"
+              />
+            </div>
           </li>
         ))}
     </ul>

@@ -10,11 +10,12 @@ interface FooterLinkItemProps {
 interface FooterLinksProps {
   items: FooterLinkItemProps[];
   title?: string;
+  className?: string; // Thêm prop className tùy chỉnh
 }
 
-const FooterLinks = ({ items, title }: FooterLinksProps) => {
+const FooterLinks = ({ items, title, className }: FooterLinksProps) => {
   return (
-    <div className="mt-[29px]">
+    <div className={` ${className}`}>
       {title && (
         <Heading
           className="text-[#E4121A] text-[16px] be-vietnam-pro-semibold"
@@ -22,10 +23,7 @@ const FooterLinks = ({ items, title }: FooterLinksProps) => {
           heading={title}
         />
       )}
-      <ul
-        id={`${title}`}
-        className="mt-5 text-[#111111] text-[12px] grid grid-cols-2"
-      >
+      <ul id={`${title}`} className="mt-5 text-[#111111] text-[12px] ">
         {items.map((item, index) => (
           <li key={index} className="mb-2 last:mb-0">
             <Link href={item.href} target={item.target}>
