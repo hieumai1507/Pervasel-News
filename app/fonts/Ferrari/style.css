@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Ferrari medium";
+  src: url("./Roboto-Black.ttf") format("woff2");
+}
+
+@font-face {
+  font-family: "Ferrari";
+  src: url("./Roboto-BlackItalic.ttf") format("woff2");
+}

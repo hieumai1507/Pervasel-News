@@ -1,0 +1,36 @@
+name: Production Frontend Folinas Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  checkout-code:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+  deploy-docker:
+    runs-on: self-hosted
+    needs: checkout-code
+    steps:
+      - name: Kill the running container with name website-folinas-fe-production
+        run: |
+          docker stop website-folinas-fe-production || true
+          docker rm website-folinas-fe-production || true
+          docker rmi website-folinas-fe-production || true
+
+      - name: Build the Docker image
+        run: |
+          docker build -t website-folinas-fe-production .
+
+      - name: stop running container running on port 4850
+        run: |
+          docker stop $(docker ps | grep ':4850->' | awk '{ print $1 }') || true
+
+      - name: Run Docker container
+        run: |
+          docker run --name website-folinas-fe-production -p 4850:4850 -d --restart unless-stopped website-folinas-fe-production
