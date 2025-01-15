@@ -2,7 +2,7 @@ import { callApi } from "@/app/apis";
 import { getImageURL } from "@/app/libs/function";
 import { constants as c } from "@/app/libs/constant";
 
-import NewsSection from "@/app/components/Sections/NewsSection";
+import NewsSection from "@/app/components/Sections/HomeSection";
 import BoardMember from "@/app/components/Sections/BoardMember";
 import BlogCarousel from "@/app/components/Sections/BlogCarousel";
 import BlogCarousel2 from "@/app/components/Sections/BlogCarousel2";

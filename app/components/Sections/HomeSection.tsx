@@ -1,5 +1,41 @@
 "use client";
 import React from "react";
+import ArticleCard from "@/app/components/Sections/ArticleCard";
+
+const AI = [
+  {
+    title: "After 'historic' investment in chips and data centers...",
+    category: "LEADERSHIP",
+    author: "LIONEL LIM",
+    date: "January 14, 2025",
+    image:
+      "https://fortune.com/img-assets/wp-content/uploads/2025/01/GettyImages-2189981438-e1736797203465.jpg?w=1440&q=75",
+  },
+  {
+    title: "Lawmakers stop worrying about AI’s existential risk...",
+    category: "NEWSLETTERS",
+    author: "JEREMY KAHN",
+    date: "January 14, 2025",
+    image:
+      "https://fortune.com/img-assets/wp-content/uploads/2025/01/GettyImages-2189981438-e1736797203465.jpg?w=1440&q=75",
+  },
+  {
+    title: "Elon Musk praises the 'exponential improvement'...",
+    category: "TECH",
+    author: "CHRISTIAAN HETZNER",
+    date: "January 14, 2025",
+    image:
+      "https://fortune.com/img-assets/wp-content/uploads/2025/01/GettyImages-2189981438-e1736797203465.jpg?w=1440&q=75",
+  },
+  {
+    title: "Reimagining the artist’s signature so creative people...",
+    category: "COMMENTARY",
+    author: "SCOTT BELSKY",
+    date: "January 14, 2025",
+    image:
+      "https://fortune.com/img-assets/wp-content/uploads/2025/01/GettyImages-2189981438-e1736797203465.jpg?w=1440&q=75",
+  },
+];
 
 const articles = [
   {
@@ -22,6 +58,7 @@ const articles = [
     author: "Jason Ma",
     date: "January 13, 2025",
   },
+
   {
     title: "Trump team studies gradual tariff hikes under emergency powers",
     category: "Finance",
@@ -30,6 +67,7 @@ const articles = [
     author: "Bloomberg",
     date: "January 13, 2025",
   },
+
   {
     title: "Wall Street job losses may top 200,000 as AI replaces roles",
     category: "Technology",
@@ -38,6 +76,7 @@ const articles = [
     author: "Bloomberg",
     date: "January 13, 2025",
   },
+
   {
     title:
       "Bill Ackman says his bid for Howard Hughes Holdings would make it ‘a modern-day Berkshire Hathaway’",
@@ -47,6 +86,7 @@ const articles = [
     author: "Bloomberg",
     date: "January 13, 2025",
   },
+
   {
     title:
       "Jamie Dimon says tariffs can help resolve competition, security issues",
@@ -56,6 +96,7 @@ const articles = [
     author: "Bloomberg",
     date: "January 13, 2025",
   },
+
   {
     title:
       "Claims about a billionaire couple hurting efforts to fight the L.A. fires via their ‘control’ of the water supply are false",
@@ -65,6 +106,7 @@ const articles = [
     author: "Bloomberg",
     date: "January 13, 2025",
   },
+
   {
     title:
       "Exclusive: Startup pioneering tiny robots that can travel inside the brain gets $28 million in new venture funding",
@@ -74,6 +116,7 @@ const articles = [
     author: "Bloomberg",
     date: "January 13, 2025",
   },
+
   {
     title:
       "Bill Ackman says his bid for Howard Hughes Holdings would make it ‘a modern-day Berkshire Hathaway’",
@@ -83,6 +126,7 @@ const articles = [
     author: "Bloomberg",
     date: "January 13, 2025",
   },
+
   {
     title:
       "Jamie Dimon says tariffs can help resolve competition, security issues",
@@ -92,6 +136,7 @@ const articles = [
     author: "Bloomberg",
     date: "January 13, 2025",
   },
+
   {
     title:
       "Claims about a billionaire couple hurting efforts to fight the L.A. fires via their ‘control’ of the water supply are false",
@@ -101,6 +146,7 @@ const articles = [
     author: "Bloomberg",
     date: "January 13, 2025",
   },
+
   {
     title:
       "Exclusive: Startup pioneering tiny robots that can travel inside the brain gets $28 million in new venture funding",
@@ -109,6 +155,45 @@ const articles = [
       "https://fortune.com/img-assets/wp-content/uploads/2025/01/GettyImages-2191572160-e1736808931265.jpg?w=1440&q=75",
     author: "Bloomberg",
     date: "January 13, 2025",
+  },
+];
+
+const newsletters = [
+  {
+    title: "Eye on AI",
+    description:
+      "Lawmakers stop worrying about AI’s existential risk and instead embrace its economic potential",
+    author: "Jeremy Kahn",
+  },
+  {
+    title: "MPW Daily",
+    description:
+      "Mark Zuckerberg says corporate America needs more 'masculine energy,' even though men run 89% of Fortune 500 companies",
+    author: "Emma Hinchliffe and Nina Ajemian",
+  },
+  {
+    title: "CHRO Daily",
+    description:
+      "Major Fortune 500 companies including Cisco and Mattel describe how they’re showing up for Los Angeles-based employees during the fire emergency",
+    author: "Brit Morse, Lila Maclellan, and Others",
+  },
+  {
+    title: "CFO Daily",
+    description:
+      "Fed may halt interest rate cuts—and could even pursue a hike, say analysts",
+    author: "Sheryl Estrada",
+  },
+  {
+    title: "Term Sheet",
+    description:
+      "As Los Angeles burns, the view from the top of the hill with Upfront Ventures’ Mark Suster",
+    author: "Allie Garfinkle",
+  },
+  {
+    title: "Data Sheet",
+    description:
+      "China evaluates sale of TikTok U.S. to Elon Musk, report says",
+    author: "Andrew Nusca",
   },
 ];
 
@@ -148,33 +233,21 @@ const NewsLayout: React.FC = () => {
       </div>
 
       <div className="lg:grid lg:grid-cols-4 gap-10">
-        {/* 3 Column Grid */}
         <div className="lg:col-span-3 space-y-10 ">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
-            {/* Displaying articles dynamically */}
             {articles.slice(1, 4).map((article, index) => (
-              <div key={index} className=" p-4 space-y-4 group">
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="w-full h-[200px] object-cover rounded-lg transition-all duration-300 ease-in-out group-hover:brightness-75"
-                />
-                <a className="text-[16px] font-semibold text-[#e4121a]">
-                  {article.category}
-                </a>
-                <h3 className="text-xl font-semibold transition-colors duration-300 ease-in-out group-hover:text-[#007bb5]">
-                  {article.title}
-                </h3>
-                <p className="text-sm text-gray-500">
-                  By <strong>{article.author}</strong>
-                </p>
-                <p className="text-sm text-gray-500">{article.date}</p>
-              </div>
+              <ArticleCard
+                key={index}
+                imageUrl={article.image}
+                category={article.category}
+                title={article.title}
+                author={article.author}
+                date={article.date}
+              />
             ))}
           </div>
         </div>
 
-        {/* Sidebar */}
         <div className="lg:col-span-1 border-t-2 pt-6 space-y-6 max-h-[500px] ">
           <h2 className="text-2xl font-semibold border-b pb-2">Latest News</h2>
           {articles.slice(1, 4).map((article, index) => (
@@ -190,25 +263,17 @@ const NewsLayout: React.FC = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 ">
         {articles.slice(4, 8).map((article, index) => (
-          <div key={index} className="p-4 space-y-4 group">
-            <img
-              src={article.image}
-              alt={article.title}
-              className="w-full h-[200px] object-cover rounded-lg transition-all duration-300 ease-in-out group-hover:brightness-75"
-            />
-            <a className="text-[16px] font-semibold text-[#e4121a]">
-              {article.category}
-            </a>
-            <h3 className="text-xl font-semibold transition-colors duration-300 ease-in-out group-hover:text-[#007bb5]">
-              {article.title}
-            </h3>
-            <p className="text-sm text-gray-500">
-              By <strong>{article.author}</strong>
-            </p>
-            <p className="text-sm text-gray-500">{article.date}</p>
-          </div>
+          <ArticleCard
+            key={index}
+            imageUrl={article.image}
+            category={article.category}
+            title={article.title}
+            author={article.author}
+            date={article.date}
+          />
         ))}
       </div>
+
       <div className="flex flex-col">
         <div
           data-cy="hp-in-stream-0"
@@ -243,26 +308,97 @@ const NewsLayout: React.FC = () => {
           </div>
         </div>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {articles.slice(8).map((article, index) => (
-          <div key={index} className="p-4 space-y-4 group">
-            <img
-              src={article.image}
-              alt={article.title}
-              className="w-full h-[200px] object-cover rounded-lg transition-all duration-300 ease-in-out group-hover:brightness-75"
-            />
-            <a className="text-[16px] font-semibold text-[#e4121a]">
-              {article.category}
-            </a>
-            <h3 className="text-xl font-semibold transition-colors duration-300 ease-in-out group-hover:text-[#007bb5]">
-              {article.title}
-            </h3>
-            <p className="text-sm text-gray-500">
-              By <strong>{article.author}</strong>
-            </p>
-            <p className="text-sm text-gray-500">{article.date}</p>
-          </div>
+          <ArticleCard
+            key={index}
+            imageUrl={article.image}
+            category={article.category}
+            title={article.title}
+            author={article.author}
+            date={article.date}
+          />
         ))}
+      </div>
+
+      <div className="relative py-12 px-6 flex justify-center items-center">
+        <div className="absolute top-0 right-0 border-t-2 border-r-2 border-black w-16 h-16"></div>
+        <div className="absolute bottom-0 left-0 border-b-2 border-l-2 border-black w-16 h-16"></div>
+        <div className="text-left">
+          <h2 className="text-[32px] font-bold">
+            Sign up for the CEO Daily newsletter
+          </h2>
+          <p className="text-gray-600 text-[24px]">
+            Get global perspectives and insights from CEOs on the biggest
+            stories in business.
+          </p>
+          <button className="mt-4 px-6 py-2 bg-black text-white font-semibold uppercase hover:bg-gray-800">
+            Subscribe
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-[#111111] text-white py-10 p-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8">Newsletters</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
+              {newsletters.map((item, index) => (
+                <div
+                  key={index}
+                  className="border-t border-gray-700 pt-4 hover:text-gray-300 transition"
+                >
+                  <h3 className="text-lg font-bold">{item.title}</h3>
+                  <p className="text-gray-400 mt-2">{item.description}</p>
+                  <p className="text-gray-500 font-bold mt-4">
+                    BY {item.author.toUpperCase()}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="lg:col-span-1 flex items-center justify-center bg-white text-black p-6">
+              <div className="text-center">
+                <h3 className="font-bold text-xl">Subscribe for $1/mo.</h3>
+                <p className="text-sm mt-2">
+                  Claim your first month at our intro rate. Renews at full
+                  price.
+                </p>
+                <button className="mt-4 px-4 py-2 bg-blue-600 text-white font-bold uppercase hover:bg-blue-700">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <h2 className="text-3xl font-bold mb-6 border-b-2 border-black pb-2 ">
+          <a href="#" className="hover:text-[#007bb5]">
+            AI
+          </a>
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {AI.map((article, index) => (
+            <ArticleCard
+              key={index}
+              imageUrl={article.image}
+              category={article.category}
+              title={article.title}
+              author={article.author}
+              date={article.date}
+            />
+          ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <iframe
+            src="https://example.com/ad"
+            className="w-full lg:w-2/3 h-full border-none"
+            title="Advertisement"
+          ></iframe>
+        </div>
       </div>
     </div>
   );
