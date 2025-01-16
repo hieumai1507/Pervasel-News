@@ -2,7 +2,7 @@ import { callApi } from "@/app/apis";
 import { getImageURL } from "@/app/libs/function";
 import { constants as c } from "@/app/libs/constant";
 
-import NewsSection from "@/app/components/Sections/HomeSection";
+import NewsSection from "@/app/components/Sections/HomeS";
 import BoardMember from "@/app/components/Sections/BoardMember";
 import BlogCarousel from "@/app/components/Sections/BlogCarousel";
 import BlogCarousel2 from "@/app/components/Sections/BlogCarousel2";
@@ -42,7 +42,9 @@ export default async function Home() {
       <div className="pb-[27px] md:pb-10 md:pt-[96px]">
         <NewsSection />
       </div>
-      <div className="pb-[27px] md:py-10">{/* <BoardMember /> */}</div>
+      <div className="pb-[27px] md:py-10">
+        <BoardMember />
+      </div>
       <div className="pb-[27px] md:py-10">{/* <Partners /> */}</div>
       <div className="pb-[27px] md:py-10">{/* <Milestones /> */}</div>
       <div className="pb-[27px] md:py-10">{/* <BlogCarousel2 /> */}</div>

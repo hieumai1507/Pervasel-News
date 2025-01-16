@@ -61,7 +61,7 @@ const Header = ({}: HeaderProps) => {
 
   return (
     <div>
-      <AddBanner />
+      {/* <AddBanner /> */}
       <header
         ref={elementRef}
         className={`py-2 md:py-4 transition-all top-0 right-0 left-0 z-10 ${
